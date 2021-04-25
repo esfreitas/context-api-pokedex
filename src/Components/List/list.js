@@ -1,15 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import{ Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
-import { Card, Col, Row } from 'antd';
+import { Button, Card, Col, Row } from 'antd';
 import AppContext from '../../AppContext/Context';
 import './list.css';
 
 const PokemonList = () => {
     const [pokemon, setPokemon] = useState(null);
     const { user } = useContext(AppContext);
-    const [page, setPage] = useState(0);
-    
+    const [page, setPage] = useState(0);    
 
     function next(){
         if(page <= 1080) {
@@ -46,7 +45,7 @@ const PokemonList = () => {
 
     return(
        <div>
-            <button onClick={previus}>Previous</button><button onClick={next}>Next</button>
+            <Button onClick={previus}>Previous</Button><Button onClick={next}>Next</Button>
             <ul className="PokemonList">
                     {pokemon.map(({ name }) => (
                         <li key={name}>

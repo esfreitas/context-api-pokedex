@@ -15,6 +15,7 @@ import AppContext from './AppContext/Context';
 function App() {
   return (
     <div className="App">
+       <div className="content">
      <AppProvider>
        <Router>
           <h1>
@@ -24,7 +25,7 @@ function App() {
            <AppContext.Consumer>
              {({ user }) => (
              <p>
-               {user && user.name} {Object.keys(user.pokedex).length} pokemon
+               {user && user.name} you see {Object.keys(user.pokedex).length} pokemon
              </p>
              )}
            </AppContext.Consumer>
@@ -37,6 +38,7 @@ function App() {
           </Switch>
        </Router>
      </AppProvider>
+     </div>
     </div>
   );
 }

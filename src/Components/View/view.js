@@ -1,3 +1,4 @@
+import { Card } from 'antd';
 import React, { useContext, useEffect, useState } from 'react';
 import{ useParams } from 'react-router-dom';
 import AppContext from '../../AppContext/Context';
@@ -22,20 +23,30 @@ const PokemonView = () => {
     }
 
     return(
-        <div className="PokemonView">
-            <h1>{pokemon.name}</h1>
-            <img
-                src={pokemon.sprites.front_default}
-                alt={pokemon.name}
-            />
+        <div className="content">
+            <div className="PokemonView">
+                <pageHeader onBack={}/>
+                <Card title={pokemon.name}>
+                
+                <img
+                    src={pokemon.sprites.front_default}
+                    alt={pokemon.name}
+                /> 
+                
+                <ul className="Pokeview abilities">
+                <h1> Abilities </h1>
+                    {pokemon.abilities.map((item) => (
+                        <li className="li_abilities">{item.ability.name}</li>
+                    ))}
 
-            Abilities
-            <ul className="Pokeview abilities">
-                <li>
+                <h1> Type(s) </h1>
+                    {pokemon.types.map((item) => (
+                        <li>{item.type.name}</li>
+                    ))}
+                </ul>
 
-                </li>
-            </ul>
-            
+                </Card>  
+            </div>
         </div>
     )
 }
